@@ -28,19 +28,29 @@
                                     <action selector="presentWebView" destination="BYZ-38-t0r" eventType="touchUpInside" id="FlU-VD-Vv3"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nMz-Ug-3aw">
+                                <rect key="frame" x="16" y="124" width="358" height="488"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nMz-Ug-3aw" secondAttribute="trailing" constant="16" id="2Jc-Aj-YFj"/>
+                            <constraint firstItem="nMz-Ug-3aw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="5i4-Mo-5fl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ruf-F2-imA" secondAttribute="bottom" constant="60" id="CWu-nV-fDW"/>
+                            <constraint firstItem="Ruf-F2-imA" firstAttribute="top" secondItem="nMz-Ug-3aw" secondAttribute="bottom" constant="103" id="Kfy-3b-1z5"/>
+                            <constraint firstItem="nMz-Ug-3aw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="33" id="h8f-fo-U1r"/>
                             <constraint firstItem="Ruf-F2-imA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hjp-bL-phQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5Ry-TJ-euo"/>
+                    <connections>
+                        <outlet property="imageView" destination="nMz-Ug-3aw" id="hFY-rw-yza"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123" y="4"/>
+            <point key="canvasLocation" x="121.53846153846153" y="3.5545023696682461"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j9w-So-Nr3">

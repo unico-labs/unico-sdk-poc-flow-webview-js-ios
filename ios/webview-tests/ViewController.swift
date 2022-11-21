@@ -12,6 +12,7 @@ import SafariServices
 final class ViewController: UIViewController {
     private let urlString = "https://192.168.2.137:3000/"
 
+    @IBOutlet var imageView: UIImageView!
     private var safariViewController: SFSafariViewController?
 
     override func viewDidLoad() {
@@ -42,12 +43,22 @@ final class ViewController: UIViewController {
                 }
 
             let method = parameters["method"]
-            let encrypted = parameters["encrypted"]?.replacingOccurrences(of: "_", with: ":")
+            let base64 = parameters["base64"]?
+                .replacingOccurrences(of: "_", with: ":")
+                .replacingOccurrences(of: "data:image/jpeg;base64,", with: "")
 
             switch method {
             case "success_callback":
-                self?.safariViewController?.dismiss(animated: true) {}
-            case "test":
+                self?.safariViewController?.dismiss(animated: true) {
+                    if let imageBase64String = base64,
+                       let data = Data(base64Encoded: imageBase64String.fixedBase64Format, options: .ignoreUnknownCharacters) {
+                        let image = UIImage(data: data)
+                        self?.imageView.image = image
+                    } else {
+                        fatalError("image decoding fail")
+                    }
+                }
+            default:
                 let alert = UIAlertController(
                     title: nil,
                     message: "Deeplink received!",
@@ -55,8 +66,6 @@ final class ViewController: UIViewController {
                 )
                 alert.addAction(UIAlertAction(title: "OK", style: .destructive))
                 self?.safariViewController?.present(alert, animated: true)
-            default:
-                break
             }
         }
     }
@@ -69,10 +78,20 @@ final class ViewController: UIViewController {
         let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true)
 
+        imageView.image = nil
+
         self.safariViewController = safariViewController
     }
 }
 
 extension Notification.Name {
     static let didReceiveDeepLink = Notification.Name("didReceiveDeepLink")
+}
+
+extension String {
+    var fixedBase64Format: Self {
+        let offset = count % 4
+        guard offset != 0 else { return self }
+        return padding(toLength: count + 4 - offset, withPad: "=", startingAt: 0)
+    }
 }
