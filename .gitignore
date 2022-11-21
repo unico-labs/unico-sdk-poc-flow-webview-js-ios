@@ -1,14 +1,8 @@
 
 ### Xcode ###
-build
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcworkspace/contents.xcworkspacedata
-### Objective-C ###
-# OS X
-.DS_Store
 # Xcode
-build/
+.DS_Store
+*/build/*
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -18,26 +12,21 @@ build/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata
-*.xccheckout
 profile
 *.moved-aside
 DerivedData
+.idea/
 *.hmap
-*.ipa
-# CocoaPods
-Pods
-.DS_Store
-AcessoBio/.DS_Store
-Pods/
-*.xcuserstate
-AcessoBio.xcworkspace/xcuserdata/bmonteiro.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-*.xcbkptlist
-*.xcbkptlist
-AcessoBio.xcworkspace/xcuserdata/matheusdomingos.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-archives/*
-dSYMs/*
-protectionreport.html
-statistics.yml
-telemetry_dump.json
+*.xccheckout
+*.xcworkspace
+!default.xcworkspace
 
-mapping.yml
+#CocoaPods
+Pods
+
+#Project
+UnicoSdkSecurity/APIKeys.swift
+generic-coverage.xml
+archives
+build
+build_wrapper_output_directory
