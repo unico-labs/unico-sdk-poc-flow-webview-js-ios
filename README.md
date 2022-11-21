@@ -1,6 +1,9 @@
 # unico-webframe-poc-react
 POC de implementação do SDK web unico no iOS usando deeplink para interação.
 
+## Sample Video
+[sample.MOV](https://github.com/unico-labs/unico-sdk-poc-flow-webview-js-ios/blob/main/sample.MOV)
+
 ## Dependências
 - XCode >= 13
 - nodejs `brew install node`
