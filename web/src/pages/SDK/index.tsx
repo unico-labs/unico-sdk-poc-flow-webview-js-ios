@@ -34,11 +34,6 @@ function SDK() {
     setLoading(false);
   }
 
-  function redirectToNative(method: String, obj: SuccessPictureResponse | null) {
-    const url = `webview-tests://method=${method}&base64=${obj?.base64}`;
-    window.location.href = url;
-  }
-
   const urlPathModels = `${window.location.protocol}//${window.location.host}/models`;
 
   const unicoTheme = new UnicoThemeBuilder()
@@ -64,11 +59,11 @@ function SDK() {
 
   const sdkCallbacks: CallbackCamera = {
     on: {
-      success: function (obj: any) {
+      success: function (obj: SuccessPictureResponse) {
         console.log(obj);
         resetComponentStates();
 
-        navigate('/redirect', {
+        navigate('/flow-finish', {
           state: {
             method: 'success_callback',
             base64: obj.base64
@@ -150,15 +145,6 @@ function SDK() {
       {!showBoxCamera && (
         <div className='main-container'>
           <main>
-            <button
-              type="button"
-              onClick={() => {
-                redirectToNative('test', null);
-              }}
-            >
-              Test Redirect
-            </button>
-
             <button
               type="button"
               onClick={() => {
