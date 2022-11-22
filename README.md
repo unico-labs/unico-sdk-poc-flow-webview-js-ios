@@ -1,4 +1,4 @@
-# unico-webframe-poc-react
+# unico-sdk-poc-flow-webview-js-ios
 POC de implementação do SDK web unico no iOS usando deeplink para interação.
 
 ## Sample Video
@@ -17,13 +17,14 @@ os arquivos devem ser adicionados em: `web/public/`
 ```
 web/public/services-sem-facetec.json
 web/public/services.json
+web/public/services-camera-traseira.json
 ```
 
 ### 2- Rode o servidor web
 ```
 cd web
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 ### 3- Altere a url do servidor
